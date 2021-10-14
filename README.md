@@ -1,20 +1,3 @@
-
-# Table of Contents
-
-1.  [Getting started](#getting-started)
-2.  [SWD Starter Kit system architecture](#system-architecture)
-    1.  [Linux architecture](#linux-architecture)
-        1.  [`ezw-dbus-user-session`](#service-1)
-        2.  [`ezw-stack`](#service-2)
-        3.  [`ezw-canopen`](#service-3)
-        4.  [`ezw-swd-left` and `ezw-swd-right`](#service-4)
-        5.  [`ezw-ros-bringup`](#service-5)
-    2.  [ROS architecture](#ros-architecture)
-
-
-
-<a id="getting-started"></a>
-
 # Getting started
 
 The [SWD® Starter Kit](https://www.ez-wheel.com/en/development-kit-for-agv-and-amr) comes with a sample ROS configuration, which is launched
@@ -33,13 +16,7 @@ the environment. An alternative mapping process based on `iris_lama` is also ava
 The SWD® Starter Kit comes with a web interface, which permits to visualize the
 map and the pose of the robot, and the safety functions.
 
-
-<a id="system-architecture"></a>
-
 # SWD Starter Kit system architecture
-
-
-<a id="linux-architecture"></a>
 
 ## Linux architecture
 
@@ -53,47 +30,33 @@ The robot requires a set of services that manages the D-Bus session, the CANOpen
 implementation, and the SWD® communications. The services are managed using
 Systemd, and uses D-Bus to communicates with each other.
 
-![img](figs/linux-services.png "SWD® Linux services")
+![SWD® Linux services](figs/linux-services.png "SWD® Linux services")
 
-
-<a id="service-1"></a>
-
-### `ezw-dbus-user-session`
+### The `ezw-dbus-user-session` service
 
 This service launches a D-Bus user session, and stores the session information
 in the file `/opt/ezw/data/tmp/SYSTEMCTL_dbus.id`. The other services load this
 file to get the session parameters, and uses it to access and communicates over
 D-Bus.
 
-
-<a id="service-2"></a>
-
-### `ezw-stack`
+### The `ezw-stack` service
 
 This service runs with root permissions to be able to mount and setup the
 CAN bus interface (`can0`). It is also used as a synchronization point for the
 services depending on it.
 
-
-<a id="service-3"></a>
-
-### `ezw-canopen`
+### The `ezw-canopen` service
 
 This service launches the ez-Wheel CANOpen Service, which implements the CANOpen
 protocol and plays the role of a CANOpen Master node.
 
 
-<a id="service-4"></a>
-
-### `ezw-swd-left` and `ezw-swd-right`
+### The `ezw-swd-left` and `ezw-swd-right` services
 
 These services launches the ez-Wheel SWD Service for the left and right motors
 respectively.
 
-
-<a id="service-5"></a>
-
-### `ezw-ros-bringup`
+### The `ezw-ros-bringup` service
 
 This is the entry point to the ROS world, this service launches the
 `starter_kit.launch` from the package `swd_starter_kit_bringup`. Note that the
@@ -102,15 +65,12 @@ the D-Bus session created by the `ezw-dbus-user-session` service. If it is
 launched from Systemd, the service automatically sets up the right D-Bus session
 parameters from `/opt/ezw/data/tmp/SYSTEMCTL_dbus.id`.
 
-
-<a id="ros-architecture"></a>
-
 ## ROS architecture
 
 The SWD Starter Kit comes with a default ROS configuration, the ROS graph of
 nodes running by default is illustrated in the following figure.
 
-![img](figs/starterkit-rosgraph.png "SWD® Starter Kit ROS Graph")
+![SWD® Starter Kit ROS Graph](figs/starterkit-rosgraph.png "SWD® Starter Kit ROS Graph")
 
 The package [`swd_starter_kit_bringup`](https://github.com/ezWheelSAS/swd_starter_kit_bringup) is the entry point, at the startup, the
 `swd_starter_kit_bringup/starter_kit.launch` is launched, which provides an
