@@ -88,7 +88,7 @@ It launches the following ros nodes:
 -   `teleop_twist_joy/teleop_node`: The joystick to twist conversion node, it reads
     the inputs from the joystick message and convert them to twist (linear and
     angular velocities).
--   `urg_node/urg_node`: The IDEC SLS LiDAR driver.
+-   `urg_node/urg_node`: The IDEC SE2L LiDAR driver.
 -   `rosbridge_server/rosbridge_websocket`: Patched version of the websocket bridge,
     used to redirect ROS messages to the web interface.
 -   `tf2_web_republisher/tf2_web_republisher`: Republish TFs to the web interface.
@@ -96,8 +96,14 @@ It launches the following ros nodes:
 -   `hector_mapping/hector_mapping`: The HectorSLAM mapping, it uses the odometry
     and the LiDAR point cloud to construct a map of the environment.
 
-The SWD Starter Kit requires the [`swd_ros_controllers`](https://github.com/ezWheelSAS/swd_ros_controllers) package to control the two
+The SWD® Starter Kit requires the [`swd_ros_controllers`](https://github.com/ezWheelSAS/swd_ros_controllers) package to control the two
 SWD motors. This package includes an implementation of a differential drive
-robot using two SWD Core (or SWD 150). More information on
+robot using two SWD® Core (or SWD® 150). More information on
 [`github.com/ezWheelSAS/swd_ros_controllers`](https://github.com/ezWheelSAS/swd_ros_controllers)
 
+## System commissioning
+### SWD® Core motors
+The SWD® Starter Kit cames with preconfigured pair of SWD® Core safety motors. However, you can change the motors configuration using the commissioning scripts available on the [swd_starter_kit_scripts](https://github.com/ezWheelSAS/swd_starter_kit_scripts) repository.
+
+### The safety LiDAR
+The LiDAR cames preconfigured with two security zones, one for the Safety Limited Speed (SLS), and the other for the forward Safe Direction Indication (SDI+). The configuration file is included also on the [swd_starter_kit_scripts](https://github.com/ezWheelSAS/swd_starter_kit_scripts) repository. If you need to change zones, make sure the LiDAR OSSDs are correctly configured (see [swd_starter_kit_scripts](https://github.com/ezWheelSAS/swd_starter_kit_scripts) for more information).
