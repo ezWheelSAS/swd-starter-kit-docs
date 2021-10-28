@@ -3,6 +3,8 @@
 The [SWD® Starter Kit](https://www.ez-wheel.com/en/development-kit-for-agv-and-amr) comes with a sample ROS configuration, which is launched
 automatically at startup. A brief [technical description is available here](https://www.ez-wheel.com/storage/upload/pdf/leaflet-starter-kit-swd-20092021-0.pdf).
 
+![SWD® Starter Kit](figs/starterkit-ez-wheel.png)
+
 All you need is:
 
 -   Turn on the SWD® Starter Kit.
