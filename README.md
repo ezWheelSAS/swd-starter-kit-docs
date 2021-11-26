@@ -105,7 +105,7 @@ robot using two SWD® Core (or SWD® 150). More information on
 
 ## System commissioning
 ### SWD® Core motors
-The SWD® Starter Kit cames with preconfigured pair of SWD® Core safety motors. However, you can change the motors configuration using the commissioning scripts available on the [`swd_starter_kit_scripts`](https://github.com/ezWheelSAS/swd_starter_kit_scripts) repository.
+The SWD® Starter Kit cames with preconfigured pair of SWD® Core safety motors. However, you can change the motors configuration using the commissioning scripts available on the [`swd-starter-kit-config`](https://github.com/ezWheelSAS/swd-starter-kit-config) repository.
 
 ### The safety LiDAR
-The LiDAR cames preconfigured with two security zones, one for the Safety Limited Speed (SLS), and the other for the forward Safe Direction Indication (SDI+). The configuration file is included also on the [`swd_starter_kit_scripts`](https://github.com/ezWheelSAS/swd_starter_kit_scripts) repository. If you need to change zones, make sure the LiDAR OSSDs are correctly configured (see [`swd_starter_kit_scripts`](https://github.com/ezWheelSAS/swd_starter_kit_scripts) for more information).
+The LiDAR cames preconfigured with two security zones, one for the Safety Limited Speed (SLS), and the other for the forward Safe Direction Indication (SDI+). The configuration file is included also on the [`swd-starter-kit-config`](https://github.com/ezWheelSAS/swd-starter-kit-config) repository. If you need to change zones, make sure the LiDAR OSSDs are correctly configured (see [`swd-starter-kit-config`](https://github.com/ezWheelSAS/swd-starter-kit-config) for more information).
