@@ -37,7 +37,7 @@ Systemd, and uses D-Bus to communicates with each other.
 ### The `ezw-dbus-user-session` service
 
 This service launches a D-Bus user session, and stores the session information
-in the file `/opt/ezw/data/tmp/SYSTEMCTL_dbus.id`. The other services load this
+in the file `/tmp/SYSTEMCTL_dbus.id`. The other services load this
 file to get the session parameters, and uses it to access and communicates over
 D-Bus.
 
@@ -46,12 +46,6 @@ D-Bus.
 This service runs with root permissions to be able to mount and setup the
 CAN bus interface (`can0`). It is also used as a synchronization point for the
 services depending on it.
-
-### The `ezw-canopen` service
-
-This service launches the ez-Wheel CANOpen Service, which implements the CANOpen
-protocol and plays the role of a CANOpen Master node.
-
 
 ### The `ezw-swd-left` and `ezw-swd-right` services
 
@@ -65,7 +59,7 @@ This is the entry point to the ROS world, this service launches the
 `starter_kit.launch` launches the `swd_ros_controllers` which requires an access to
 the D-Bus session created by the `ezw-dbus-user-session` service. If it is
 launched from Systemd, the service automatically sets up the right D-Bus session
-parameters from `/opt/ezw/data/tmp/SYSTEMCTL_dbus.id`.
+parameters from `/tmp/SYSTEMCTL_dbus.id`.
 
 ## ROS architecture
 
