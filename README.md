@@ -32,7 +32,23 @@ The robot requires a set of services that manages the D-Bus session, the CANOpen
 implementation, and the SWD® communications. The services are managed using
 Systemd, and uses D-Bus to communicates with each other.
 
-![SWD® Linux services](figs/linux-services.png "SWD® Linux services")
+```plantuml
+@startuml
+!theme plain
+
+node ezw_dbus_user_session
+node ezw_stack
+node ezw_swd_left
+node ezw_swd_right
+node ezw_ros_bringup
+
+ezw_dbus_user_session <-down- ezw_stack
+ezw_stack <-down- ezw_swd_left
+ezw_stack <-down- ezw_swd_right
+ezw_stack <-down- ezw_ros_bringup
+
+@enduml
+```
 
 ### The `ezw-dbus-user-session` service
 
