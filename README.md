@@ -24,23 +24,7 @@ The SWD® StarterKit comes with a preinstalled Linux, and the Robot Operation Sy
 
 The SWD® StarterKit requires services to manage the D-Bus session and abstract the CANOpen communication. Services are managed using `Systemd`, and uses D-Bus to communicates with each other.
 
-```plantuml
-@startuml
-!theme plain
-
-node ezw_dbus_user_session
-node ezw_stack
-node ezw_swd_left
-node ezw_swd_right
-node ezw_ros_bringup
-
-ezw_dbus_user_session <-down- ezw_stack
-ezw_stack <-down- ezw_swd_left
-ezw_stack <-down- ezw_swd_right
-ezw_stack <-down- ezw_ros_bringup
-
-@enduml
-```
+![SWD® StarterKit D-Bus Graph](figs/starterkit-dbusgraph.png "SWD® StarterKit D-Bus Graph")
 
 ### The `ezw-dbus-user-session` service
 
